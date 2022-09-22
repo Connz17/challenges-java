@@ -20,7 +20,7 @@ public class Challenge {
      * @return returns a string which is the concatenation of the 2 parameters
      */
     public String getFullName(String firstName, String lastName) {
-        return "";
+        return firstName.concat(" " + lastName);
     }
 
     /***
@@ -31,7 +31,9 @@ public class Challenge {
      * @return returns a boolean based on whether the number is between 0 and the range limit
      */
     public boolean isWithinRange(int number, int rangeLimit) {
-        return false;
+        if (number >= 0 && number <= rangeLimit){
+            return true;
+        } else return false;
     }
 
 
@@ -50,8 +52,24 @@ public class Challenge {
      * @return returns the result of the equation
      */
     public int stringCalculator(int numberOne, int numberTwo, String operator) {
-        return -1;
+        if (numberOne < 1 || numberTwo < 1) {
+            return -1;
+        }
+        switch (operator) {
+            case "*":
+                return numberOne * numberTwo ;
+            case "/":
+                return numberOne / numberTwo ;
+            case "+":
+                return numberOne + numberTwo ;
+            case "-":
+                return numberOne - numberTwo ;
+            default:
+                return -1;
+        }
+
     }
+
 
 
     // -------------- INTERMEDIATE --------------
@@ -70,7 +88,11 @@ public class Challenge {
      * @return If we need to wake up or not based on the conditions above.
      */
     public boolean shouldWakeUp(boolean barking, int hourOfDay) {
-        return false;
+
+        if (hourOfDay < 0 || hourOfDay > 23){
+            return false;
+        }
+        return barking && (hourOfDay < 8 || hourOfDay > 22);
     }
 
     /***
@@ -83,9 +105,23 @@ public class Challenge {
      * character in the string: a"
      */
     public String getMiddleCharacter(String word) {
-        return "";
-    }
+        if (word.contains(" ") || word.length() == 0) {
+            return "Invalid Input";
+        }
 
+        int middleCharNum = word.length() / 2;
+        String midCharacter;
+        if (word.length() % 2 != 0) {
+
+            midCharacter = word.substring(middleCharNum, middleCharNum + 1);
+
+        } else {
+            midCharacter = word.substring(middleCharNum - 1, middleCharNum + 1);
+        }
+        return midCharacter;
+
+
+    }
 
     /***
      * Write a method called printMegaBytesAndKiloBytes that has 1 parameter of type int.
@@ -99,7 +135,14 @@ public class Challenge {
      * @return returns a string in the format above if the input is valid, or "Invalid value"
      */
     public String printMegaBytesAndKiloBytes(int kiloBytes) {
-        return "";
+        if ( kiloBytes < 0){
+            return "Invalid Value";
+        } else {
+            int megaByte = kiloBytes / 1024;
+            int remainder = kiloBytes % 1024;
+            return kiloBytes + " KB = " + megaByte + " MB and " + remainder + " KB";
+        }
+
     }
 
     // -------------- ADVANCED --------------

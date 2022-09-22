@@ -22,7 +22,7 @@ public class Math {
      * Create 1 private field below:
      * - PI is a double and should be set to 3.141592653589793 by default
      */
-
+private double PI = 3.141592653589793;
     /**
      * Create getters and setters for the fields above.
      *
@@ -36,8 +36,19 @@ public class Math {
      * setPI should make sure the incoming number is between 3.1 and 3.2
      * If it isn't it should not update the PI field
      */
+    public double getPI() {
+        return PI;
+    }
 
-    /**
+    public void setPI(double PI) {
+        if (PI < 3.1 || PI > 3.2){
+            return;
+        } else {
+            this.PI = PI;
+        }
+
+    }
+/**
      * Complete the min method
      *
      * This should:

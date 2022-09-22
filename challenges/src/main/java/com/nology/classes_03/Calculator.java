@@ -24,10 +24,19 @@ public class Calculator {
      * - secondInput is a double
      */
 
+    private boolean hasBattery;
+    private double firstInput;
+    private double secondInput;
+
     /**
      * Create a constructor below to initialize the class and the data to the fields above.
      * hasBattery should be set to true by default and is not needed in the constructor
      */
+    public Calculator(double firstInput, double secondInput) {
+        this.hasBattery = true;
+        this.firstInput = firstInput;
+        this.secondInput = secondInput;
+    }
 
     /**
      * Create getters and setters for the fields above.
@@ -46,6 +55,29 @@ public class Calculator {
      *
      */
 
+    public boolean getHasBattery() {
+        return hasBattery;
+    }
+
+    public void setHasBattery(boolean hasBattery) {
+        this.hasBattery = hasBattery;
+    }
+
+    public double getFirstInput() {
+        return firstInput;
+    }
+
+    public void setFirstInput(double firstInput) {
+        this.firstInput = firstInput;
+    }
+
+    public double getSecondInput() {
+        return secondInput;
+    }
+
+    public void setSecondInput(double secondInput) {
+        this.secondInput = secondInput;
+    }
     /**
      * Create a calculateAddition method below
      *
@@ -60,7 +92,14 @@ public class Calculator {
      *
      * @return double result of firstInput + secondInput
      */
+public double calculateAddition(){
+    if (hasBattery == false){
+        return -1;
+    } else {
+        return firstInput + secondInput;
+    }
 
+}
     /**
      * Create a calculateDivision method below
      *
@@ -76,4 +115,14 @@ public class Calculator {
      *
      * @return double result of firstInput / secondInput
      */
+    public double calculateDivision(){
+        if (hasBattery == false){
+            return -1;
+        } else if (secondInput == 0) {
+            return 0;
+        } else {
+            return firstInput / secondInput;
+        }
+
+    }
 }
